@@ -10,11 +10,13 @@ import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BookAppointmentModal from './components/BookAppointmentModal';
 
 function App() {
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = React.useState(false);
   return (
     <div className="min-h-screen w-full overflow-x-hidden relative">
-      <Navbar />
+      <Navbar onBookAppointment={() => setIsAppointmentModalOpen(true)} />
       <main>
         <Hero />
         <AboutUs />
@@ -27,6 +29,11 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      
+      <BookAppointmentModal 
+        isOpen={isAppointmentModalOpen} 
+        onClose={() => setIsAppointmentModalOpen(false)} 
+      />
     </div>
   );
 }

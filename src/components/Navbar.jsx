@@ -14,7 +14,7 @@ const navLinks = [
   { name: 'Contact', to: 'contact' },
 ];
 
-const Navbar = () => {
+const Navbar = ({ onBookAppointment }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -33,9 +33,16 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <div className="flex items-center cursor-pointer">
+        <Link
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="flex items-center cursor-pointer"
+        >
           <img src={logo} alt="तथास्तु Ayurveda" className="h-14 w-auto object-contain transition-all duration-300" />
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -52,16 +59,12 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          <Link
-            to="contact"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
+          <button
+            onClick={onBookAppointment}
             className="cursor-pointer bg-primary text-white hover:bg-primary-dark px-6 py-2.5 rounded-full font-semibold transition-colors shadow-md"
           >
             Book Appointment
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Toggle */}
@@ -98,17 +101,15 @@ const Navbar = () => {
                {link.name}
              </Link>
             ))}
-            <Link
-              to="contact"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              onClick={() => setIsOpen(false)}
-              className="cursor-pointer bg-primary text-white hover:bg-primary-dark px-8 py-3 mt-2 rounded-full font-semibold transition-colors shadow-md"
+            <button
+              onClick={() => {
+                setIsOpen(false);
+                onBookAppointment();
+              }}
+              className="cursor-pointer bg-primary text-white hover:bg-primary-dark px-8 py-3 mt-2 rounded-full font-semibold transition-colors shadow-md w-full max-w-[200px]"
             >
               Book Appointment
-            </Link>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
