@@ -30,6 +30,13 @@ const testimonials = [
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
     text: 'Excellent approach to weight management. It wasn\'t just about dieting; it was about metabolic correction. I lost 10 kgs naturally and feel much healthier.',
     rating: 5,
+  },
+  {
+    id: 5,
+    name: 'Parag',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200',
+    text: 'I have been suffering from an allergic cough, sneezing and acidity for many years. This time in Vasant Ritu, I consulted Dr Rupali Uttarwar madam, she advised me of Vaman panchkarma. Under the guidance of madam and in a very helpful and hygienic environment, I have completed my Vaman Panchkarma.  Now I have complete relief from allergies ,sneezing and acidity also. Thank you Dr Rupali and Tathastu Ayurved team for this beautiful detox treatment',
+    rating: 5,
   }
 ];
 
@@ -107,9 +114,6 @@ const Testimonials = () => {
                 </div>
                 
                 <div className="md:w-1/3 flex flex-col items-center text-center z-10">
-                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-primary-light mb-4 shadow-lg">
-                    <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].name} className="w-full h-full object-cover" />
-                  </div>
                   <h4 className="text-xl font-bold text-primary-dark">{testimonials[currentIndex].name}</h4>
                   <div className="flex gap-1 text-accent mt-2">
                     {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
